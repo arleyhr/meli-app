@@ -1,0 +1,28 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "import"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "no-console": 0,
+        "import/order": ["error", {
+            "groups": [
+                "builtin",
+                "external",
+                "internal", "parent", "sibling", "index"
+            ],
+            "newlines-between": "always-and-inside-groups",
+            "alphabetize": {
+                "order": "asc",
+                "caseInsensitive": true
+            }
+        }]
+    }
+}
