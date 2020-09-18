@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === 'production';
 /**
  * Server port
  */
-const port: number = isProd ? 3000 : 9999;
+const port: number = isProd ? +(process.env.PORT || 3000) : 9999;
 
 /**
  * Meli Base URL
