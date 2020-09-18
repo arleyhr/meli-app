@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRoutes } from 'hookrouter';
+import { ThemeProvider } from 'styled-components';
+
+import NotFoundPage from './pages/not-found';
+
+import { theme } from './theme';
+import { routes } from './routes';
 
 function App() {
+  const routeResult = useRoutes(routes);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      {routeResult || <NotFoundPage />}
+    </ThemeProvider>
   );
 }
 
