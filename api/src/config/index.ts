@@ -23,4 +23,9 @@ const staticApiBase = 'https://http2.mlstatic.com';
  */
 const genericErrorMsg = 'UPS! Try again';
 
-export { apiBase, staticApiBase, isProd, port, genericErrorMsg };
+/**
+ * Default site Id
+ */
+const defaultSiteId = 'MCO';
+
+export { apiBase, staticApiBase, defaultSiteId, isProd, port, genericErrorMsg };

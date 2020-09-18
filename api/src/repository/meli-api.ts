@@ -1,4 +1,4 @@
-import { genericErrorMsg } from '../config';
+import { defaultSiteId, genericErrorMsg } from '../config';
 import { removeDuplicatedItems } from '../utils/remove-duplicated-elements';
 import request, { requestStatic } from '../utils/request';
 
@@ -72,22 +72,22 @@ async function getSites(): Promise<GenericResponse<SiteDto[]>> {
 /**
  * Auto suggestions
  *
- * @param {string} siteId
  * @param {string} query
  * @param {number} limit
+ * @param {string} [siteId]
  * @return {*}  {Promise<GenericResponse<AutosuggestDto>>}
  */
 async function getAutosuggest(
-  siteId: string,
   query: string,
   limit: number,
+  siteId?: string,
 ): Promise<GenericResponse<AutosuggestDto>> {
   try {
     /**
-     * Request suggest
+     * Request suggestions
      */
     const result = await requestStatic.get<AutosuggestDto>(
-      endpoints.autosuggest(siteId, query, limit),
+      endpoints.autosuggest(siteId || defaultSiteId, query, limit),
     );
 
     /**
@@ -154,20 +154,20 @@ async function getCategory(
 /**
  * Search products
  *
- * @param {string} siteId
  * @param {string} query
+ * @param {string} [siteId]
  * @return {*}  {Promise<GenericResponse<SearchItemsDto>>}
  */
 async function searchProducts(
-  siteId: string,
   query: string,
+  siteId?: string,
 ): Promise<GenericResponse<SearchItemsDto>> {
   try {
     /**
      * Request search items
      */
     const result = await request.get<SearchItemsResponse>(
-      endpoints.searchProducts(siteId, query),
+      endpoints.searchProducts(siteId || defaultSiteId, query),
     );
 
     /**
@@ -199,7 +199,6 @@ async function searchProducts(
           ok: true,
           data: {
             author: { name: 'Arley', lastname: 'HR' },
-            categories,
             items: result.data.results.map((item: Result) => ({
               id: item.id,
               title: item.title,
@@ -212,6 +211,7 @@ async function searchProducts(
               condition: item.condition,
               free_shipping: item.shipping.free_shipping,
             })),
+            categories,
           },
         };
       }
@@ -274,7 +274,6 @@ async function getItem(
             name: 'Arley',
             lastname: 'HR',
           },
-          category: categoryResult.data as CategoryResponse,
           item: {
             id: item.id,
             title: item.title,
@@ -289,6 +288,7 @@ async function getItem(
             sold_quantity: item.sold_quantity,
             description: resultDescription.data.plain_text,
           },
+          category: categoryResult.data as CategoryResponse,
         },
       };
     }
@@ -318,10 +318,10 @@ function handleError(msg: string) {
   };
 }
 
-export const meliApi = {
+export const meliRepository = {
   getSites,
-  getAutosuggest,
   getCategory,
   searchProducts,
   getItem,
+  getAutosuggest,
 };

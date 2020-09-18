@@ -27,6 +27,16 @@
           "caseInsensitive": true
         }
       }
+    ],
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "Object": false,
+          "{}": false
+        }
+      }
     ]
   }
 }
