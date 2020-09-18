@@ -7,6 +7,9 @@ import { apiBase, staticApiBase } from '../config';
  */
 const request = create({
   baseURL: apiBase,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 /**
@@ -14,6 +17,9 @@ const request = create({
  */
 export const requestStatic = create({
   baseURL: staticApiBase,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 export default request;
