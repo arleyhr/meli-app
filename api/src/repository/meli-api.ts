@@ -293,6 +293,13 @@ async function getItem(
       };
     }
 
+    if (resultItem.status === 404) {
+      return {
+        ok: true,
+        message: 'Not found',
+      };
+    }
+
     /**
      * Handle error
      */
