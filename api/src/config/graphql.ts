@@ -26,7 +26,7 @@ async function setupGraphQL(app: Express): Promise<void> {
   /**
    * Create apollo server
    */
-  const gqlServer = new ApolloServer({ schema });
+  const gqlServer = new ApolloServer({ schema, playground: true });
 
   gqlServer.applyMiddleware({ app, path: '/graphql' });
 }
