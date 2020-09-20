@@ -227,6 +227,13 @@ async function searchProducts(
       };
     }
 
+    if (result.status === 404) {
+      return {
+        ok: true,
+        message: 'Not found',
+      };
+    }
+
     /**
      * Handle error
      */
