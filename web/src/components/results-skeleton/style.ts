@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const ResultsContent = styled.section`
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? theme.colors.main : 'white'};
   border-radius: 4px;
   padding: ${(props) => props.theme.space.$1};
 `;

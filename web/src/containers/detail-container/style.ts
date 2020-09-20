@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const DetailContent = styled.section`
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? theme.colors.main : 'white'};
   border-radius: 4px;
   padding: 0 ${(props) => props.theme.space.$2};
   padding-top: ${(props) => props.theme.space.$1};
@@ -17,6 +18,7 @@ export const ItemImageContainer = styled.figure`
   width: 100%;
 
   img {
+    border-radius: 4px;
     width: 100%;
   }
   @media screen and (min-width: 768px) {

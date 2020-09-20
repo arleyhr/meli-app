@@ -15,6 +15,13 @@ export const ItemContainer = styled.li`
 export const PhotoContainer = styled.figure`
   height: 180px;
   width: 180px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 180px;
+    .react-loading-skeleton {
+      height: 180px;
+    }
+  }
 `;
 
 export const RightSideContent = styled.div`

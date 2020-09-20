@@ -16,7 +16,7 @@ function DetailSkeleton() {
   return (
     <Container>
       <Bread>
-        <Skeleton />
+        <Skeleton width={300} />
       </Bread>
       <DetailContent>
         <InfoContent>
