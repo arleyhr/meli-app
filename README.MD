@@ -6,8 +6,8 @@ A simple FullStack app that interact with the Mercado Libre API built with React
 
 # 😎 Demo!
 
-- React frontend [meli-app.vercel.app](meli-app.vercel.app)
-- React frontend with GraphQl [meli-app-graphql.vercel.app](meli-app-graphql.vercel.app)
+- React frontend [https://meli-app.vercel.app](https://meli-app.vercel.app)
+- React frontend with GraphQl [https://meli-app-graphql.vercel.app](https://meli-app-graphql.vercel.app)
 - Express API [https://meli-api-ahr.herokuapp.com](https://meli-api-ahr.herokuapp.com)
 - GraphQL API [https://meli-api-ahr.herokuapp.com/graphql](https://meli-api-ahr.herokuapp.com/graphql)
 
