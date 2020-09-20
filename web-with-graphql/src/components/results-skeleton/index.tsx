@@ -14,7 +14,7 @@ function ResultsSkeleton() {
   return (
     <Container>
       <Bread>
-        <Skeleton />
+        <Skeleton width={300} />
       </Bread>
       <ResultsContent>{items}</ResultsContent>
     </Container>

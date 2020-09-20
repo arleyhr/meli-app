@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const ItemContainer = styled.li`
-  border-bottom: thin solid ${(props) => props.theme.colors.gray};
+  border-bottom: thin solid
+    ${({ theme }) =>
+      theme.name === 'dark' ? theme.colors.gray300 : theme.colors.gray};
   display: flex;
   align-items: flex-start;
   margin: ${(props) => props.theme.space.$1} 0;

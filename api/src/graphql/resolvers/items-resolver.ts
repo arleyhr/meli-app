@@ -30,6 +30,8 @@ export class ItemDetailResolver {
   ): Promise<ItemDetailResponse | undefined> {
     const result = await meliRepository.getItem(itemId);
 
+    console.log(result);
+
     if (result.data) {
       return result.data;
     }

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const DetailContent = styled.section`
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? theme.colors.main : 'white'};
   border-radius: 4px;
   padding: 0 ${(props) => props.theme.space.$2};
   padding-top: ${(props) => props.theme.space.$1};
@@ -20,11 +21,13 @@ export const ItemImageContainer = styled.figure`
 
   .react-loading-skeleton {
     height: 400px;
+    width: 400px;
   }
 
   @media screen and (min-width: 768px) {
     max-width: 680px;
     .react-loading-skeleton {
+      width: 648px;
       height: 680px;
     }
   }

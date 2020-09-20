@@ -1,8 +1,7 @@
 /**
  * API url
  */
-// const apiUrl = 'https://meli-api-ahr.herokuapp.com/graphql';
-const apiUrl = 'http://localhost:9999/graphql';
+const apiUrl = 'https://meli-api-ahr.herokuapp.com/graphql';
 
 /**
  * Default error message

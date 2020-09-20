@@ -7,9 +7,12 @@ export const InputContainer = styled.form`
 `;
 
 export const SelectSites = styled.select`
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? theme.colors.gray300 : 'white'};
   border: none;
-  border-right: thin solid ${(props) => props.theme.colors.gray};
+  border-right: thin solid
+    ${({ theme }) =>
+      theme.name === 'dark' ? theme.colors.gray300 : 'transparent'};
   color: ${(props) => props.theme.colors.gray200};
   height: 40px;
   outline: none;
@@ -22,9 +25,12 @@ export const SelectSites = styled.select`
 `;
 
 export const Input = styled.input`
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? theme.colors.black : 'white'};
   border: none;
   box-sizing: border-box;
+  color: ${({ theme }) =>
+    theme.name === 'dark' ? 'white' : theme.colors.black};
   height: 40px;
   flex: 1;
   padding-left: 10px;
@@ -38,13 +44,18 @@ export const Input = styled.input`
 `;
 
 export const IconButton = styled.button`
-  background-color: white;
+  background-color: ${({ theme }) =>
+    theme.name === 'dark' ? theme.colors.blue : 'white'};
   border: none;
   box-sizing: border-box;
   cursor: pointer;
   height: 40px;
   outline-color: ${(props) => props.theme.colors.blue};
   width: 46px;
+
+  &:hover {
+    opacity: 0.9;
+  }
 
   img {
     max-width: 90%;
