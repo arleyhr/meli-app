@@ -2,7 +2,9 @@ import cors from 'cors';
 import express from 'express';
 import { useExpressServer } from 'routing-controllers';
 
+import { setupGraphQL } from '../config/graphql';
 import { setupSwagger } from '../config/swagger';
+
 import { AppController } from '../controllers/app.controller';
 import { MeliController } from '../controllers/meli.controller';
 
@@ -20,6 +22,12 @@ app.use(express.json());
  * Cors middleware
  */
 app.use(cors());
+
+/**
+ * Setup graphql
+ */
+
+setupGraphQL(app);
 
 /**
  * Setup swagger docs

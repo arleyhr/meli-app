@@ -135,8 +135,17 @@ export interface Result {
   tags: string[];
   catalog_listing?: boolean;
   differential_pricing?: DifferentialPricing;
+  pictures?: Picture[];
 }
 
+interface Picture {
+  id: string;
+  url: string;
+  secure_url: string;
+  size: string;
+  max_size: string;
+  quality: string;
+}
 interface Address {
   state_id: string;
   state_name: string;

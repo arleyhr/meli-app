@@ -1,10 +1,10 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 
 import Breadcrumbs from '../../components/breadcrumbs';
 import Button from '../../components/button';
 import { Container } from '../../components/container';
 
-import { useGetDetail } from '../../hooks/use-get-detail';
 import { formatPrice } from '../../utils/format-price';
 
 import warningImage from '../../assets/advertencia.png';
@@ -17,10 +17,17 @@ import {
   ItemImageContainer,
   NotFound,
 } from './style';
+import { ItemDetailResponse, QueryItemDetailArgs } from '../../graphql/types';
+import { getItem } from '../../graphql/queries/item-detail';
+import DetailSkeleton from '../../components/detail-skeleton';
 
 type DetailContainerProps = {
   /** item id */
   itemId: string;
+};
+
+type FoundDetail = {
+  itemDetail: ItemDetailResponse;
 };
 
 /**
@@ -29,8 +36,26 @@ type DetailContainerProps = {
  * @param {DetailContainerProps} props
  */
 function DetailContainer(props: DetailContainerProps) {
-  /** simplifying complex logic with custom hook */
-  const { item, breadcrumbsPath } = useGetDetail(props.itemId);
+  /** execute gql query */
+  const { loading, data } = useQuery<FoundDetail, QueryItemDetailArgs>(
+    getItem,
+    {
+      variables: {
+        itemId: props.itemId,
+      },
+    },
+  );
+
+  // loading skeleton
+  if (loading) {
+    return <DetailSkeleton />;
+  }
+
+  /**
+   * Safe data
+   */
+  const item = data?.itemDetail.item;
+  const breadcrumbsPath = data?.itemDetail.category.path_from_root || [];
 
   // validate if exists item
   if (item) {
