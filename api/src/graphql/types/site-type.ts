@@ -10,7 +10,4 @@ export class Site {
 
   @Field(() => String)
   name!: string;
-
-  @Field(() => String)
-  title!: string;
 }

@@ -13,7 +13,7 @@ import { SiteResolver } from '../graphql/resolvers/sites-resolver';
 /**
  * apply middleware
  */
-async function setupGraphQL(app: Express) {
+async function setupGraphQL(app: Express): Promise<void> {
   /**
    * Build schema
    */

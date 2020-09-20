@@ -17,7 +17,7 @@ export class Category {
   @Field(() => Number)
   total_items_in_this_category!: number;
 
-  @Field(() => String)
+  @Field(() => [PathFromRoot])
   path_from_root!: PathFromRoot[];
 
   @Field(() => String)
