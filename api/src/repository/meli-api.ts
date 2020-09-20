@@ -227,6 +227,13 @@ async function searchProducts(
       };
     }
 
+    if (result.status === 404) {
+      return {
+        ok: true,
+        message: 'Not found',
+      };
+    }
+
     /**
      * Handle error
      */
@@ -290,6 +297,13 @@ async function getItem(
           },
           category: categoryResult.data as CategoryResponse,
         },
+      };
+    }
+
+    if (resultItem.status === 404) {
+      return {
+        ok: true,
+        message: 'Not found',
       };
     }
 

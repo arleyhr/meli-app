@@ -1,11 +1,16 @@
 import React from 'react';
+import { useParams } from 'react-router';
 
-type ItemDetailPageProps = {
-  id: string;
-};
+import DetailSkeleton from '../components/detail-skeleton';
+import DetailContainer from '../containers/detail-container';
 
-function ItemDetailPage(props: ItemDetailPageProps) {
-  return <h1>Detail {props.id}</h1>;
+function ItemDetailPage() {
+  const params = useParams<{ id: string }>();
+  return (
+    <React.Suspense fallback={<DetailSkeleton />}>
+      <DetailContainer itemId={params.id} />
+    </React.Suspense>
+  );
 }
 
 export default ItemDetailPage;
