@@ -6,21 +6,27 @@ export const DetailContent = styled.section`
   padding: 0 ${(props) => props.theme.space.$2};
   padding-top: ${(props) => props.theme.space.$1};
 `;
+
 export const InfoContent = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
   }
 `;
+
 export const ItemImageContainer = styled.figure`
   margin-left: 0;
   margin-top: ${(props) => props.theme.space.$1};
   width: 100%;
 
-  img {
-    width: 100%;
+  .react-loading-skeleton {
+    height: 400px;
   }
+
   @media screen and (min-width: 768px) {
     max-width: 680px;
+    .react-loading-skeleton {
+      height: 680px;
+    }
   }
 `;
 
@@ -30,21 +36,8 @@ export const ItemData = styled.div`
     margin-top: ${(props) => props.theme.space.$2};
   }
 
-  .info {
-    font-size: ${(props) => props.theme.fontSize.$2};
-  }
-
-  h1 {
-    font-size: ${(props) => props.theme.fontSize.$4};
-
-    @media screen and (min-width: 768px) {
-      padding-right: 40px;
-    }
-  }
-
   .price {
     display: block;
-    font-size: ${(props) => props.theme.fontSize.$6};
     margin: ${(props) => props.theme.space.$2} 0;
   }
 
@@ -67,15 +60,6 @@ export const DescriptionContent = styled.div`
     margin-bottom: ${(props) => props.theme.space.$2};
   }
 
-  h2 {
-    font-size: ${(props) => props.theme.fontSize.$5};
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
   @media screen and (min-width: 768px) {
     margin: ${(props) => props.theme.space.$1};
     max-width: 720px;
@@ -86,8 +70,6 @@ export const DescriptionContent = styled.div`
   }
 `;
 
-export const NotFound = styled.div`
-  color: ${(props) => props.theme.colors.gray200};
-  margin: ${(props) => props.theme.space.$2};
-  text-align: center;
+export const Bread = styled.div`
+  margin: ${(props) => props.theme.space.$1} 0;
 `;

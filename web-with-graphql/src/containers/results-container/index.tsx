@@ -1,11 +1,15 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 
 import Breadcrumbs from '../../components/breadcrumbs';
 import { Container } from '../../components/container';
 import Item from '../../components/item';
 
-import { useSearchItems } from '../../hooks/use-search-items';
 import { NotFound, ResultsContent } from './style';
+
+import { searchQuery } from '../../graphql/queries/search-items';
+import { ItemsResponse, QuerySearchItemsArgs } from '../../graphql/types';
+import ResultsSkeleton from '../../components/results-skeleton';
 
 type ResultsContainerProps = {
   /** query key word */
@@ -15,9 +19,32 @@ type ResultsContainerProps = {
   siteId: string;
 };
 
+type FoundItems = {
+  searchItems: ItemsResponse;
+};
+
 function ResultsContainer(props: ResultsContainerProps) {
-  /** simplifying complex logic with custom hook */
-  const { items, breadcrumbsPath } = useSearchItems(props.q, props.siteId);
+  /** execute gql query */
+  const { loading, data } = useQuery<FoundItems, QuerySearchItemsArgs>(
+    searchQuery,
+    {
+      variables: {
+        q: props.q,
+        siteId: props.siteId,
+      },
+    },
+  );
+
+  // loading skeleton
+  if (loading) {
+    return <ResultsSkeleton />;
+  }
+
+  /**
+   * Safe data
+   */
+  const items = data?.searchItems.items || [];
+  const breadcrumbsPath = data?.searchItems.categories[0]?.path_from_root || [];
 
   if (items.length) {
     const breadcrumbs = breadcrumbsPath.map((item) => ({
