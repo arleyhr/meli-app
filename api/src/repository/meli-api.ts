@@ -261,12 +261,7 @@ async function getItem(
     /**
      * If response OK then return data
      */
-    if (
-      resultItem.status === 200 &&
-      resultDescription.status === 200 &&
-      resultItem.data &&
-      resultDescription.data
-    ) {
+    if (resultItem.status === 200 && resultItem.data) {
       const item = resultItem.data;
 
       // Get category of item
@@ -295,7 +290,7 @@ async function getItem(
             condition: item.condition,
             free_shipping: item.shipping.free_shipping,
             sold_quantity: item.sold_quantity,
-            description: resultDescription.data.plain_text,
+            description: resultDescription.data?.plain_text || '',
           },
           category: categoryResult.data as CategoryResponse,
         },
