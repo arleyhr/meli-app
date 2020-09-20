@@ -15,6 +15,7 @@ A simple FullStack app that interact with the Mercado Libre API built with React
 
 - React frontend with caching request and React Suspense ([⚡️ /web](web))
 - React frontend with apollo client consuming GraphQl API ([⚡️ /web-with-graphql](web-with-graphql))
+- Dark mode 🔥
 - Backend API with express([⚡️ /api](api))
 - Backend API with GraphQl([⚡️ /api](api))
 - All with Typescript :v
