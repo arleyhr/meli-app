@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const DetailContent = styled.section`
+export const DetailContent = styled.div`
   background-color: ${({ theme }) =>
     theme.name === 'dark' ? theme.colors.main : 'white'};
   border-radius: 4px;
-  padding: 0 ${(props) => props.theme.space.$2};
-  padding-top: ${(props) => props.theme.space.$1};
+  padding: 48px;
 `;
 export const InfoContent = styled.div`
   @media screen and (min-width: 768px) {
@@ -29,7 +28,6 @@ export const ItemImageContainer = styled.figure`
 export const ItemData = styled.div`
   @media screen and (min-width: 768px) {
     margin-left: ${(props) => props.theme.space.$2};
-    margin-top: ${(props) => props.theme.space.$2};
   }
 
   .info {
@@ -79,12 +77,7 @@ export const DescriptionContent = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    margin: ${(props) => props.theme.space.$1};
-    max-width: 720px;
-    h2,
-    p {
-      margin-left: ${(props) => props.theme.space.$2};
-    }
+    max-width: 680px;
   }
 `;
 

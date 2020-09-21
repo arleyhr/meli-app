@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ResultsContent = styled.section`
+export const ResultsContent = styled.div`
   background-color: ${({ theme }) =>
     theme.name === 'dark' ? theme.colors.main : 'white'};
   border-radius: 4px;
