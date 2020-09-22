@@ -46,6 +46,9 @@ export const ItemData = styled.div`
     display: block;
     font-size: ${(props) => props.theme.fontSize.$6};
     margin: ${(props) => props.theme.space.$2} 0;
+    @media screen and (max-width: 550px) {
+      font-size: calc(${(props) => props.theme.fontSize.$6} - 10px);
+    }
   }
 
   button {

@@ -15,6 +15,7 @@ export const ButtonContainer = styled.button`
   position: fixed;
   right: 40px;
   width: 48px;
+  padding: 0;
   &:hover {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
     opacity: 0.9;
@@ -24,9 +25,11 @@ export const ButtonContainer = styled.button`
     background-image: url(${(props) =>
       props.theme.name === 'dark' ? lightImage : darkImage});
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 36px;
+    background-position: center;
     display: block;
-    height: 36px;
-    width: 36px;
+    margin: 0 auto;
+    height: 48px;
+    width: 48px;
   }
 `;

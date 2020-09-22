@@ -12,6 +12,11 @@ export const ItemContainer = styled.li`
   &:last-child {
     border: none;
   }
+
+  @media screen and (max-width: 550px) {
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const PhotoContainer = styled.figure`
